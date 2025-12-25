@@ -38,8 +38,14 @@ bool SeriesFilm::matchesCondition(const std::string& condition) const {
     }
 
     std::istringstream iss(condition);
-    std::string field, op, value;
-    iss >> field >> op >> value;
+    std::string field, op;
+    iss >> field >> op;
+
+    std::string value;
+    std::getline(iss, value);
+
+    value.erase(0, value.find_first_not_of(" \t"));
+    value.erase(value.find_last_not_of(" \t") + 1);
 
     if (field == "title") {
         if (op == "==") return title == value;
@@ -62,10 +68,10 @@ bool SeriesFilm::matchesCondition(const std::string& condition) const {
             if (op == "<=") return episodeCount <= numValue;
         }
         catch (const std::invalid_argument&) {
-            throw std::invalid_argument("Invalid number format: '" + value + "'");
+            return false;
         }
         catch (const std::out_of_range&) {
-            throw std::out_of_range("Number out of range: '" + value + "'");
+            return false;
         }
     }
     else if (field == "type" && op == "==") {

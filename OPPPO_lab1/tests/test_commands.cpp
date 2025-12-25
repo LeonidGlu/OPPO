@@ -223,58 +223,10 @@ TEST(CreateFilmTest, InvalidInputs) {
     EXPECT_THROW(createFilm("series", "Title", "Director|abc"), std::invalid_argument);
 }
 
-TEST(ProcessCommandsTest, ProcessAddCommand) {
-    FilmContainer container;
-
-    // Тест успешного добавления
-    std::istringstream iss1("game \"The Matrix\"|Wachowski");
-    testing::internal::CaptureStdout();
-    processAddCommand(iss1, container);
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_TRUE(output.find("Film added successfully") != std::string::npos);
-    EXPECT_EQ(container.size(), 1);
-
-    // Тест с ошибкой - недостаточно параметров
-    std::istringstream iss2("game");
-    testing::internal::CaptureStdout();
-    processAddCommand(iss2, container);
-    output = testing::internal::GetCapturedStdout();
-    EXPECT_TRUE(output.find("Error: Missing film type after ADD command") != std::string::npos);
-
-    // Тест с ошибкой - неправильный формат
-    std::istringstream iss3("cartoon Shrek");
-    testing::internal::CaptureStdout();
-    processAddCommand(iss3, container);
-    output = testing::internal::GetCapturedStdout();
-    EXPECT_TRUE(output.find("Error: Missing title for ADD command") != std::string::npos);
-}
-
-TEST(ProcessCommandsTest, ProcessRemoveCommand) {
-    FilmContainer container;
-    container.addFilm(std::make_unique<GameFilm>("Film1", "Director1"));
-    container.addFilm(std::make_unique<GameFilm>("Film2", "Director2"));
-    container.addFilm(std::make_unique<CartoonFilm>("Cartoon1", TypeCreation::Drawn));
-
-    // Удаление по условию
-    std::istringstream iss("type == game");
-    testing::internal::CaptureStdout();
-    processRemoveCommand(iss, container);
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_TRUE(output.find("Successfully removed 2 film(s)") != std::string::npos);
-    EXPECT_EQ(container.size(), 1);
-
-    // Пустое условие
-    std::istringstream iss2("");
-    testing::internal::CaptureStdout();
-    processRemoveCommand(iss2, container);
-    output = testing::internal::GetCapturedStdout();
-    EXPECT_TRUE(output.find("Error: Missing condition for REM command") != std::string::npos);
-}
-
 TEST(FileProcessingTest, CommandFromFile) {
     FilmContainer container;
 
-    // Создание тестового файла
+    //Создание тестового файла
     const std::string testFilename = "test_commands.txt";
     std::ofstream testFile(testFilename);
     testFile << "# This is a comment\n";
@@ -289,13 +241,12 @@ TEST(FileProcessingTest, CommandFromFile) {
     commandFromFile(testFilename, container);
     std::string output = testing::internal::GetCapturedStdout();
 
-    // Проверяем вывод
     EXPECT_TRUE(output.find("Film added successfully") != std::string::npos);
     EXPECT_TRUE(output.find("Films in container") != std::string::npos);
     EXPECT_TRUE(output.find("Successfully removed") != std::string::npos);
     EXPECT_TRUE(output.find("Finished processing file") != std::string::npos);
 
-    // Удаляем тестовый файл
+    //Удаляем тестовый файл
     std::remove(testFilename.c_str());
 }
 

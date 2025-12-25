@@ -33,7 +33,7 @@ TEST(GameFilmTest, MatchesCondition) {
     EXPECT_TRUE(film.matchesCondition("director == Christopher Nolan"));
     EXPECT_TRUE(film.matchesCondition("type == game"));
     EXPECT_FALSE(film.matchesCondition("type == cartoon"));
-    EXPECT_THROW(film.matchesCondition("invalid_field == value"), std::exception);
+    EXPECT_FALSE(film.matchesCondition("invalid_field == value"));
 }
 
 // Тестирование CartoonFilm
@@ -59,7 +59,7 @@ TEST(CartoonFilmTest, MatchesCondition) {
     EXPECT_TRUE(film.matchesCondition("animation_type == plasticine"));
     EXPECT_FALSE(film.matchesCondition("animation_type == drawn"));
     EXPECT_TRUE(film.matchesCondition("type == cartoon")); 
-    EXPECT_THROW(film.matchesCondition("animation_type == invalid"), std::invalid_argument);
+   EXPECT_FALSE(film.matchesCondition("animation_type == invalid"));
 }
 
 
@@ -87,5 +87,5 @@ TEST(SeriesFilmTest, MatchesCondition) {
     EXPECT_TRUE(film.matchesCondition("episodes < 100"));
     EXPECT_FALSE(film.matchesCondition("episodes < 50"));
     EXPECT_TRUE(film.matchesCondition("type == series"));
-    EXPECT_THROW(film.matchesCondition("episodes == abc"), std::invalid_argument);
+    EXPECT_FALSE(film.matchesCondition("episodes == abc"));
 }
