@@ -1,0 +1,9 @@
+/home/tatyana/OPPPO/OPPPO_lab1/build/CMakeFiles/film_classes.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/CMakeFiles/film_lab.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/CMakeFiles/test.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/CMakeFiles/edit_cache.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/CMakeFiles/rebuild_cache.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/tests/CMakeFiles/film_tests.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/tests/CMakeFiles/test.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/tests/CMakeFiles/edit_cache.dir
+/home/tatyana/OPPPO/OPPPO_lab1/build/tests/CMakeFiles/rebuild_cache.dir

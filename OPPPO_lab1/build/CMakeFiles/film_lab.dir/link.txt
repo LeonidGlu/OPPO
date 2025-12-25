@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/film_lab.dir/OPPPO_lab1.cpp.o -o film_lab  libfilm_classes.a 

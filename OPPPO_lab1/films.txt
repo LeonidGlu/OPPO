@@ -1,0 +1,16 @@
+ADD game Matritsa|Vachovski
+ADD game qwe|Cris Nolan
+ADD game forest|Robert qwe
+ADD cartoon lion king|drawn
+ADD cartoon Toy history|drawn
+ADD cartoon Shrek|puppet
+ADD series Game of Thrones|qwerty hdfk|73
+ADD series Breaking bad|Vins qwehbfsj|500
+ADD series Friends|MKarta erdtlp|500
+PRINT
+REM type == cartoon
+PRINT
+REM episodes > gggg100
+REM episodes > 100
+REM episodes == 500
+PRINT

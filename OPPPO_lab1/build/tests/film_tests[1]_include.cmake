@@ -1,0 +1,5 @@
+if(EXISTS "/home/tatyana/OPPPO/OPPPO_lab1/build/tests/film_tests[1]_tests.cmake")
+  include("/home/tatyana/OPPPO/OPPPO_lab1/build/tests/film_tests[1]_tests.cmake")
+else()
+  add_test(film_tests_NOT_BUILT film_tests_NOT_BUILT)
+endif()

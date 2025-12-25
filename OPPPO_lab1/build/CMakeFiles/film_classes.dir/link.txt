@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfilm_classes.a CMakeFiles/film_classes.dir/Film.cpp.o CMakeFiles/film_classes.dir/GameFilm.cpp.o CMakeFiles/film_classes.dir/CartoonFilm.cpp.o CMakeFiles/film_classes.dir/SeriesFilm.cpp.o CMakeFiles/film_classes.dir/FilmContainer.cpp.o
+/usr/bin/ranlib libfilm_classes.a
